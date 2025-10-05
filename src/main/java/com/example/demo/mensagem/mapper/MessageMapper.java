@@ -11,6 +11,7 @@ import com.example.demo.usuario.User;
 import lombok.AllArgsConstructor;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
 @AllArgsConstructor
@@ -19,8 +20,9 @@ public abstract class MessageMapper {
 
 
     private final IUserRepository userRepository;
-	
 
+    @Mapping( target = "id", ignore = true)
+    @Mapping(target = )
 	public abstract Message toDocument (CreateMessageRequestDto createMessageRequestDto);
 
 	public abstract ResponseMessageDto toResponse (Message message);

@@ -26,22 +26,22 @@ public class UserService {
 
     private final UserMapper userMapper;
 
-    public List<ResponseUserDto> getAllUsuarios(){
-        List<User> usuarios = userRepository.findAll();
+    public List<ResponseUserDto> getAllUsers(){
+        List<User> user = userRepository.findAll();
 
-        return userMapper.toResponseList(usuarios);
+        return userMapper.toResponseList(user);
 
     }
 
-    public ResponseUserDto getUsuarioById(String id){
-        Optional<User> usuario = Optional.of(userRepository.findById(id)
+    public ResponseUserDto getUserById(String id){
+        Optional<User> user = Optional.of(userRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Usuario com o Id: " + id + " não encontrado")));
 
-        return userMapper.toResponse(usuario.get());
+        return userMapper.toResponse(user.get());
 
     }
 
-    public ResponseUserDto createUsuario(CreateUserRequestDto createUserRequestDto){
+    public ResponseUserDto createUser(CreateUserRequestDto createUserRequestDto){
         userRepository.findByEmail(createUserRequestDto.getEmail())
                 .ifPresent(u -> {
                     throw new IllegalArgumentException("Um usuario com o e-mail : " + createUserRequestDto
@@ -54,24 +54,32 @@ public class UserService {
         return userMapper.toResponse(usuarioSalvo);
     }
     //Faz a atualiza as informações do usuario
-    public ResponseUserDto updateUsuario(String id, UpdateUserDto updateUserDto){
-        User usuario = userRepository.findById(id)
+    public ResponseUserDto updateUser(String id, UpdateUserDto updateUserDto){
+        User user = userRepository.findById(id)
                .orElseThrow(()-> new EntityNotFoundException("Usuario com o id: "+ id + "não encontrado"));
-           if (!usuario.getEmail().equals(updateUserDto.getEmail())) {
+           if (!user.getEmail().equals(updateUserDto.getEmail())) {
                Optional<User> userNewEmail = userRepository.findByEmail(updateUserDto.getEmail());
                if (userNewEmail.isPresent() && !userNewEmail.get().getId().equals(id)) {
                    throw new IllegalArgumentException("Usuario com o e-mail existente: " + updateUserDto.getEmail());
 
                }
 
-               userMapper.updateUserFromDto(updateUserDto, usuario);
+               userMapper.updateUserFromDto(updateUserDto, user);
 
            }
 
-        User usuarioSalvo = userRepository.save(usuario);
+        User saveUser = userRepository.save(user);
 
 
-        return userMapper.toResponse(usuarioSalvo);
+        return userMapper.toResponse(saveUser);
     }
 
+
+    public void deleteUser(String id) {
+        if (userRepository.findById(id).isPresent()) {
+            throw new RuntimeException("Usuario não encontrado");
+
+        }
+        userRepository.deleteById(id);
+    }
 }
