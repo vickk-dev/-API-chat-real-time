@@ -22,7 +22,6 @@ public abstract class MessageMapper {
     private final IUserRepository userRepository;
 
     @Mapping( target = "id", ignore = true)
-    @Mapping(target = )
 	public abstract Message toDocument (CreateMessageRequestDto createMessageRequestDto);
 
 	public abstract ResponseMessageDto toResponse (Message message);
