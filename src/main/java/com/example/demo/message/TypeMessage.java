@@ -1,4 +1,4 @@
-package com.example.demo.mensagem;
+package com.example.demo.message;
 
 public enum TypeMessage {
 

@@ -1,11 +1,11 @@
-package com.example.demo.usuario.mapper;
+package com.example.demo.user.mapper;
 
 import java.util.List;
 
-import com.example.demo.usuario.User;
-import com.example.demo.usuario.dto.CreateUserRequestDto;
-import com.example.demo.usuario.dto.ResponseUserDto;
-import com.example.demo.usuario.dto.UpdateUserDto;
+import com.example.demo.user.User;
+import com.example.demo.user.dto.CreateUserRequestDto;
+import com.example.demo.user.dto.ResponseUserDto;
+import com.example.demo.user.dto.UpdateUserDto;
 import org.mapstruct.*;
 
 

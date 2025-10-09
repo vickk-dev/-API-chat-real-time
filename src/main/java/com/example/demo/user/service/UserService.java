@@ -1,13 +1,13 @@
-package com.example.demo.usuario.service;
+package com.example.demo.user.service;
 
-import com.example.demo.usuario.IUserRepository;
+import com.example.demo.user.IUserRepository;
 
-import com.example.demo.usuario.User;
+import com.example.demo.user.User;
 
-import com.example.demo.usuario.dto.CreateUserRequestDto;
-import com.example.demo.usuario.dto.ResponseUserDto;
-import com.example.demo.usuario.dto.UpdateUserDto;
-import com.example.demo.usuario.mapper.UserMapper;
+import com.example.demo.user.dto.CreateUserRequestDto;
+import com.example.demo.user.dto.ResponseUserDto;
+import com.example.demo.user.dto.UpdateUserDto;
+import com.example.demo.user.mapper.UserMapper;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;

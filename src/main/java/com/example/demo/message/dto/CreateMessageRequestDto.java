@@ -1,6 +1,6 @@
-package com.example.demo.mensagem.dto;
+package com.example.demo.message.dto;
 
-import com.example.demo.mensagem.TypeMessage;
+import com.example.demo.message.TypeMessage;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

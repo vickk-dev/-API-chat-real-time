@@ -1,14 +1,11 @@
-package com.example.demo.mensagem.dto;
+package com.example.demo.message.dto;
 
-import com.example.demo.mensagem.TypeMessage;
+import com.example.demo.message.TypeMessage;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
-
 public class ResponseMessageDto {
 
 	private String id;
@@ -17,7 +14,8 @@ public class ResponseMessageDto {
 	private String senderName;
 	private String timestamp;
 	private String senderId;
-	
+	private String idChat;
+
 	
 	
 

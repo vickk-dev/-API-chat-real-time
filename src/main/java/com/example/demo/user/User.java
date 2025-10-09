@@ -1,4 +1,4 @@
-package com.example.demo.usuario;
+package com.example.demo.user;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

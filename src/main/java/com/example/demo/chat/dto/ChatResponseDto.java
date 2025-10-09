@@ -3,7 +3,7 @@ package com.example.demo.chat.dto;
 import java.util.List;
 
 
-import com.example.demo.usuario.dto.ResponseUserDto;
+import com.example.demo.user.dto.ResponseUserDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

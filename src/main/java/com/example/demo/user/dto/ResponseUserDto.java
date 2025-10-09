@@ -1,4 +1,4 @@
-package com.example.demo.usuario.dto;
+package com.example.demo.user.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

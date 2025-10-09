@@ -1,9 +1,9 @@
-package com.example.demo.usuario.controller;
+package com.example.demo.user.controller;
 
-import com.example.demo.usuario.dto.CreateUserRequestDto;
-import com.example.demo.usuario.dto.ResponseUserDto;
-import com.example.demo.usuario.dto.UpdateUserDto;
-import com.example.demo.usuario.service.UserService;
+import com.example.demo.user.dto.CreateUserRequestDto;
+import com.example.demo.user.dto.ResponseUserDto;
+import com.example.demo.user.dto.UpdateUserDto;
+import com.example.demo.user.service.UserService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
