@@ -12,15 +12,17 @@ import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-@AllArgsConstructor
+
 @Mapper( componentModel = "spring", uses = {UserMapper.class})
 public abstract class ChatMapper {
-
-	private final IUserRepository userRepository;
-	private final UserMapper userMapper;
+    @Autowired
+	private  IUserRepository userRepository;
+    @Autowired
+    private  UserMapper userMapper;
 
     @Mapping(target = "displayNome", ignore = true)
     @Mapping(target = "messagePreview", ignore = true)

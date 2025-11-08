@@ -10,6 +10,7 @@ import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,8 +21,8 @@ import java.util.Optional;
 @Mapper( componentModel = "spring")
 public abstract class MessageMapper {
 
-
-    private final IUserRepository userRepository;
+    @Autowired
+    private IUserRepository userRepository;
 
 
 

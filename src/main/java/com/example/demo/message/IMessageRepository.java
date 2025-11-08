@@ -22,4 +22,6 @@ public interface IMessageRepository extends MongoRepository<Message, String> {
 
     Optional<Message> findByIdChat(String idChat);
 
+    List<Message> findBySenderIdAndTimestamp(String chatId);
+
 }

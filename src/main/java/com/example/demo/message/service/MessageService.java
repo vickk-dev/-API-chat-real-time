@@ -11,6 +11,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -51,7 +52,11 @@ public class MessageService {
 
        }
 
-     }
+    public List<ResponseMessageDto> getHistoryForChat(String chatId){
+         List<Message> messages = messageRepository.findBySenderIdAndTimestamp(chatId);
+         return messageMapper.toResponseList(messages);
 
+    }
+}
 
 
