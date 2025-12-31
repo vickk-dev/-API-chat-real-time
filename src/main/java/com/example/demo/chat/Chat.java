@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import java.util.List;
 
+import com.example.demo.message.Message;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -18,7 +19,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.Data;
 
 @Data
-@Document(collation ="chat")
+@Document(collection ="chat")
 public class Chat {
 	
 	@Id
@@ -28,7 +29,7 @@ public class Chat {
 
 	private List<String> participants = new ArrayList<>();
 
-	private TypoChat typoChat;
+	private ChatType chatType;
 	
 	private String lastMessage;
 	
@@ -37,6 +38,6 @@ public class Chat {
 	
 	@LastModifiedDate
 	private Instant updatedAt;
-	
-	
+
+
 }
