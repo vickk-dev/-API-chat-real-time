@@ -9,7 +9,7 @@ import lombok.Data;
 
 
 @Data
-@Document(collation = "User")
+@Document(collection = "User")
 public class User {
 
 	@Id
