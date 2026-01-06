@@ -32,7 +32,7 @@ jobs:
           path: target/surefire-reports
 
       - name: Build Docker Image
-        run: docker build -t real-chat-api
+        run: docker build -t real-chat-api .
 
 
 
