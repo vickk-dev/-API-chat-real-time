@@ -9,7 +9,8 @@ import lombok.RequiredArgsConstructor;
 public class CreateChatDto {
 
     String chatId;
-    String id;
+    String receiverId;
+    String receiverEmail;
     String name;
     String senderId;
     String senderName;

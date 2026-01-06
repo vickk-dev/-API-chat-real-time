@@ -12,10 +12,9 @@ public interface IChatRepository extends MongoRepository<Chat, String>  {
 
     Optional<Chat> findByDisplayName(String displayName, Limit limit);
 	
-	Optional<Chat> findByParticipants(List<String> participants);
+	List<Chat> findByParticipants(List<String> participants);
 	
 	Optional<Chat> findByCreateData(Instant createData);
 
-	
-	
+
 }
