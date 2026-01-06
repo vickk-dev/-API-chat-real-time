@@ -20,7 +20,9 @@ jobs:
           cache: 'maven'
 
       - name: Build com Maven
-        run: ./mvnw clean verify
+        run: |
+            chmod +x mvnw
+            ./mvnw clean verify
 
       - name: Uploud Test Reports
         if: failure()
