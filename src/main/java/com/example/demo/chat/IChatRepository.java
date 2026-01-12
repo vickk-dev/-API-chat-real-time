@@ -5,6 +5,7 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.demo.user.User;
 import org.springframework.data.domain.Limit;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
@@ -12,9 +13,11 @@ public interface IChatRepository extends MongoRepository<Chat, String>  {
 
     Optional<Chat> findByDisplayName(String displayName, Limit limit);
 	
-	List<Chat> findByParticipants(List<String> participants);
+	Optional<Chat> findByParticipants(List<String> participants);
 	
-	Optional<Chat> findByCreateData(Instant createData);
+	Optional<Chat> findByCreateAt(Instant createData);
 
+	Optional<Object> findChatByUsers(User currentUser, User receiver);
 
+	Chat findChatByParticipants(List<String> participants);
 }
