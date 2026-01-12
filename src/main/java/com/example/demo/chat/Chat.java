@@ -34,7 +34,7 @@ public class Chat {
 	private String lastMessage;
 	
 	@CreatedDate
-	private Instant createData;
+	private Instant createAt;
 	
 	@LastModifiedDate
 	private Instant updatedAt;
