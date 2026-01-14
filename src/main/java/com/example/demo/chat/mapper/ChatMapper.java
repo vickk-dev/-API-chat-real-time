@@ -31,8 +31,8 @@ public abstract class ChatMapper {
 	
 	public abstract List<ChatSummaryDto> toSumaryList(List<Chat>chat);
 
-
-
+	@Mapping(target = "createdAt", ignore = true)
+	@Mapping(target = "receiverEmail", ignore = true)
     @Mapping(target = "participants", ignore = true)
 	public abstract ChatResponseDto toResponse (Chat chat);
 

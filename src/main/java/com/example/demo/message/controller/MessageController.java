@@ -22,6 +22,7 @@ public class MessageController {
         List<ResponseMessageDto> history = messageService.getHistoryForChat(chatId);
         return ResponseEntity.ok(history);
 
+
     }
 
 

@@ -14,8 +14,7 @@ public interface IChatRepository extends MongoRepository<Chat, String>  {
 	
 	Optional<Chat> findByParticipants(List<String> participants);
 	
-	Optional<Chat> findByCreateData(Instant createData);
+	Optional<Chat> findByCreateAt(Instant createData);
 
-	
-	
+
 }

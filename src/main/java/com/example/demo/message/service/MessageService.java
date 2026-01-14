@@ -27,6 +27,9 @@ public class MessageService {
   private final KafkaTemplate<String, ResponseMessageDto> kafkaTemplate;
   private static final String KAFKA_TOPIC = "chat-messages";
 
+
+
+
      public ResponseMessageDto addMessage(CreateMessageRequestDto createMessageRequestDto, String senderId){
          Message newMessage = messageMapper.toDocument(createMessageRequestDto);
 
