@@ -95,7 +95,7 @@ public class ChatServiceTest {
 
         when(userRepository.findByEmail(emailReceiver)).thenReturn(Optional.of(receiverUser));
         when(userContext.GetCurrentUser()).thenReturn(loggedUser);
-        when(chatRepository.findChatByUsers(loggedUser, receiverUser)).thenReturn(Optional.of(existentChat));
+        when(chatRepository.findByParticipants(any())).thenReturn(Optional.of(existentChat));
         when(chatMapper.toResponse(existentChat)).thenReturn(response);
 
         ChatResponseDto result = chatService.getChatByReceiverEmail(emailReceiver);
@@ -110,7 +110,7 @@ public class ChatServiceTest {
 
     @Test
     @DisplayName("Deve Lancar Uma Execao Quando Usuario De Destino Nao Existir")
-    void MustLaunchAnExecutionWhenYourTargetUserDoesNotExist(){
+    void MustLaunchAnExceptionWhenYourTargetUserDoesNotExist(){
         String emailNonExists = "inexistente@outlook.com";
         when(userRepository.findByEmail(emailNonExists)).thenReturn(Optional.empty());
 
@@ -119,7 +119,7 @@ public class ChatServiceTest {
                 });
         assertEquals("Usuário não encontrado com o email: " + emailNonExists, exception.getMessage());
 
-        verify(chatRepository, never()).findChatByUsers(any(), any());
+        verify(chatRepository, never()).findByParticipants(any());
 
     }
 
@@ -135,16 +135,14 @@ public class ChatServiceTest {
         User receiverUser = new User();
         receiverUser.setId("User2");
         when(userRepository.findByEmail(emailReceiver)).thenReturn(Optional.of(receiverUser));
-
-
         when(userContext.GetCurrentUser()).thenReturn(loggedUser);
 
-        when(chatRepository.findChatByUsers(loggedUser, receiverUser)).thenReturn(Optional.empty());
+        when(chatRepository.findByParticipants(any())).thenReturn(Optional.empty());
 
         assertThrows(EntityNotFoundException.class, () -> {
             chatService.getChatByReceiverEmail(emailReceiver);
         });
-        verify(chatRepository, times(1)).findChatByUsers(any(), any());
+        verify(chatRepository, times(1)).findByParticipants(any());
 
     }
 

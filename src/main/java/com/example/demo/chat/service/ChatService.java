@@ -68,9 +68,14 @@ public class ChatService {
                 .orElseThrow(() -> new EntityNotFoundException("Usuário não encontrado com o email: " + receiverEmail));
 
 
-            User currentUser = userContext.GetCurrentUser();
+        User currentUser = userContext.GetCurrentUser();
+        List<String> participants = new ArrayList<>();
+         participants.add(currentUser.getId());
+         participants.add(receiver.getId());
 
-            Chat chat = (Chat) chatRepository.findChatByUsers(currentUser, receiver)
+         Collections.sort(participants);
+
+            Chat chat = chatRepository.findByParticipants(participants)
                 .orElseThrow(() -> new EntityNotFoundException("Não existe nenhum chat iniciado com esse usuário."));
 
         return chatMapper.toResponse(chat);
