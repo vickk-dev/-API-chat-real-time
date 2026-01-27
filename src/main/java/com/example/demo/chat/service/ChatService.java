@@ -3,6 +3,7 @@ package com.example.demo.chat.service;
 import com.example.demo.chat.Chat;
 import com.example.demo.chat.IChatRepository;
 import com.example.demo.chat.dto.ChatResponseDto;
+import com.example.demo.chat.dto.ChatSummaryDto;
 import com.example.demo.chat.dto.CreateChatDto;
 import com.example.demo.chat.mapper.ChatMapper;
 import com.example.demo.message.IMessageRepository;
@@ -35,7 +36,7 @@ public class ChatService {
     private final UserContext userContext;
 
 
-    public Chat createChat(CreateChatDto createChatDto) {
+    public ChatResponseDto createChat(CreateChatDto createChatDto) {
 
 
         User receiver = userRepository.findByEmail(createChatDto.receiverEmail())
@@ -52,7 +53,7 @@ public class ChatService {
         Optional<Chat> existingChat = chatRepository.findByParticipants(participants);
 
         if (existingChat.isPresent()) {
-            return existingChat.get();
+            return chatMapper.toResponse(existingChat.get());
         }
 
 
@@ -61,7 +62,7 @@ public class ChatService {
         newChat.setChatType(CHAT_PRIVADO); // por enquanto fica setado o chat privado.
         newChat.setCreateAt(Instant.now());
         newChat.setDisplayName(receiver.getName());
-        return chatRepository.save(newChat);
+        return chatMapper.toResponse(chatRepository.save(newChat));
     }
    public ChatResponseDto getChatByReceiverEmail(String receiverEmail) {
         User receiver = userRepository.findByEmail(receiverEmail)
@@ -86,6 +87,25 @@ public class ChatService {
                 .orElseThrow(() -> new EntityNotFoundException("Chat com o Id: " + id + " não encontrado")));
 
         return chatMapper.toResponse(chat.get());
+
+
+
+
+        }
+
+    public List<ChatSummaryDto> findAllMyChats() {
+        User currentUser = userContext.GetCurrentUser();
+        List<Chat> chats = chatRepository.findAllByParticipantsContaining(currentUser.getId());
+        return chatMapper.toSumaryList(chats);
+    }
+
+        public void deleteChat(String chatId){
+
+            Chat chat = chatRepository.findById(chatId)
+                    .orElseThrow(()-> new EntityNotFoundException("Chat com o Id " + chatId +"não encontrado"));
+
+            chatRepository.deleteById(chatId);
+
 
     }
 }
