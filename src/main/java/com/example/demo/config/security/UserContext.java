@@ -1,4 +1,4 @@
-package com.example.demo.security;
+package com.example.demo.config.security;
 
 import com.example.demo.user.IUserRepository;
 import com.example.demo.user.User;
@@ -27,4 +27,5 @@ public User GetCurrentUser() {
     return userRepository.findByEmail(email)
             .orElseThrow(()-> new RuntimeException("Usuario do token não encontrado no banco"));
     }
+
 }

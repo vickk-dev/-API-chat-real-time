@@ -7,7 +7,7 @@ import com.example.demo.chat.dto.ChatSummaryDto;
 import com.example.demo.chat.dto.CreateChatDto;
 import com.example.demo.chat.mapper.ChatMapper;
 import com.example.demo.message.IMessageRepository;
-import com.example.demo.security.UserContext;
+import com.example.demo.config.security.UserContext;
 import com.example.demo.user.IUserRepository;
 import com.example.demo.user.User;
 import com.example.demo.user.mapper.UserMapper;
