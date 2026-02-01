@@ -1,10 +1,8 @@
 package com.example.demo.user.dto;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 public class ResponseUserDto {
 	
 	
