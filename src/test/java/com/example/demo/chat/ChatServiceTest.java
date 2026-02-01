@@ -4,7 +4,7 @@ import com.example.demo.chat.dto.ChatResponseDto;
 import com.example.demo.chat.dto.CreateChatDto;
 import com.example.demo.chat.mapper.ChatMapper;
 import com.example.demo.chat.service.ChatService;
-import com.example.demo.security.UserContext;
+import com.example.demo.config.security.UserContext;
 import com.example.demo.user.IUserRepository;
 import com.example.demo.user.User;
 import jakarta.persistence.EntityNotFoundException;

@@ -22,6 +22,7 @@ public interface UserMapper {
 	
 	List<ResponseUserDto> toResponseList(List<User> userList);
     @Mapping( target = "id", ignore = true)
+	@Mapping(target = "password", ignore = true)
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 	void updateUserFromDto(UpdateUserDto updateUserDto, @MappingTarget User user);
 

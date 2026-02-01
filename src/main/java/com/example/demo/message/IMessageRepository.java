@@ -20,8 +20,6 @@ public interface IMessageRepository extends MongoRepository<Message, String> {
 
     List<Message> findByTimestamp(Instant timestamp);
 
-    Optional<Message> findByIdChat(String idChat);
-
-    List<Message> findBySenderIdAndTimestamp(String chatId);
+    List<Message> findBySenderIdAndTimestampAfter(String chatId, Instant timestamp);
 
 }

@@ -23,5 +23,7 @@ public class User {
 	@Pattern(regexp = "^\\+?[1-9]\\d{1,14}$|^\\([1-9]{2}\\)\\s9?[0-9{4}-][0-9{4}]$")
 	private String phoneNumber;
 
+	private String password;
+
 
 }

@@ -54,12 +54,15 @@ public class MessageService {
 
 
        }
+    public ResponseMessageDto getMessageById(String messageId) {
 
-    public List<ResponseMessageDto> getHistoryForChat(String chatId){
-         List<Message> messages = messageRepository.findBySenderIdAndTimestamp(chatId);
-         return messageMapper.toResponseList(messages);
+        Message message = messageRepository.findById(messageId)
+                .orElseThrow(() -> new RuntimeException("Mensagem não encontrada com o ID: " + messageId));
 
+        return messageMapper.toResponse(message);
     }
+
+
 }
 
 

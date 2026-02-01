@@ -26,5 +26,12 @@ public class CreateUserRequestDto {
 			)
 	@NotBlank(message = "Telefone é obrigatorio")
 	private String phoneNumber;
-	
+
+	@NotBlank(message = "A senha é obrigatória")
+	@Size(min = 8, message = "A senha deve ter no mínimo 8 caracteres")
+	@Pattern(
+			regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$",
+			message = "A senha deve conter letra maiúscula, minúscula, número e caractere especial"
+	)
+	private String password;
 }
