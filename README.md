@@ -5,7 +5,7 @@
 ![MongoDB](https://img.shields.io/badge/MongoDB-6.0-green?logo=mongodb)
 ![Kafka](https://img.shields.io/badge/Apache%20Kafka-7.5-black?logo=apachekafka)
 ![Docker](https://img.shields.io/badge/Docker-Compose-blue?logo=docker)
-![Build Status](https://github.com/vickk-dev/Api-user-kotlin/actions/workflows/maven.yml/badge.svg)
+
 
 > **⚠️ STATUS:** Em desenvolvimento ativo (PoC). Focado em demonstrar arquitetura event-driven e integração híbrida REST/WebSocket.
 
